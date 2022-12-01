@@ -1,17 +1,11 @@
-import { useState } from 'react'
+import * as React from "react";
 import {
   Typography,
   Container,
-  List,
   Box,
-  MenuItem,
-  Accordion,
-  AccordionSummary,
-  AccordionDetails,
-  Dialog
-} from '@mui/material'
-import { useNavigate } from 'react-router-dom'
-import { gql, useQuery, useLazyQuery } from '@apollo/client'
+} from "@mui/material";
+import { gql, useQuery } from "@apollo/client";
+import AlertDialogSlide from "../src/components/DialogPopup";
 
 const COUNTRIES = gql`
   query Countries {
@@ -58,47 +52,43 @@ const COUNTRY = gql`
 `
 
 const Countries = () => {
-  const { loading, error, data, refetch } = useQuery(COUNTRIES)
-  if (loading) return <>loading...</>
-  if (error) return <>error...</>
+  const { loading, error, data, refetch } = useQuery(COUNTRIES);
+  if (loading) return <>loading...</>;
+  if (error) return <>error...</>;
 
-  const countries = data.countries
+  const countries = data.countries;
   const countriesWithStates = countries.filter(
-    country => country.states.length > 0
-  )
+    (country) => country.states.length > 0
+  );
 
   return (
     <Container>
-      <Typography variant='h1' sx={{ textAlign: 'center' }}>
+      <Typography variant="h1" sx={{ textAlign: "center" }}>
         Countries
       </Typography>
       <Box>
-        <Box sx={{ textAlign: 'center', padding: '.5rem' }}>
+        <Box sx={{ textAlign: "center", padding: ".5rem" }}>
           {countries.length} Countries
         </Box>
-        <Box sx={{ textAlign: 'center', padding: '.5rem' }}>
+        <Box sx={{ textAlign: "center", padding: ".5rem" }}>
           {countriesWithStates.length} Countries with states
         </Box>
-        {countries.map(country => (
+        {countries.map((country) => (
           <Box
             key={country.code}
             sx={{
-              padding: '.5rem 0rem',
-              color: country.states.length > 0 ? 'blue' : '#999'
+              padding: ".5rem 0rem",
+              color: country.states.length > 0 ? "blue" : "#999",
             }}
           >
-            <a href='#'>
-              {country.emoji} {country.name}{' '}
-              {country.states.length > 0 && country.states.length}{' '}
-              {country.states.length > 1 && 'States'}
-              {country.states.length === 1 && 'State'}
-            </a>
+            <AlertDialogSlide
+              country={country}
+            />
           </Box>
         ))}
       </Box>
-
     </Container>
-  )
-}
+  );
+};
 
-export default Countries
+export default Countries;
