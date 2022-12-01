@@ -13,8 +13,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 });
 
 export default function AlertDialogSlide(props) {
-    console.log('HHERRRRE2', props)
-  const {isOpen, country} = props;
+  const {country} = props;
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -27,9 +26,6 @@ export default function AlertDialogSlide(props) {
 
   return (
     <div>
-      {/* <Button variant="outlined" onClick={handleClickOpen}>
-        Slide in alert dialog
-      </Button> */}
       <a href='#' onClick={handleClickOpen}>
               {country.emoji} {country.name}{" "}
               {country.states.length > 0 && country.states.length}{" "}
