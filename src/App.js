@@ -6,6 +6,7 @@ import Languages from './languages'
 import Layout from './layout'
 import Countries from './countries'
 import Continents from './continents'
+import { DataProvider } from './context/DataContext'
 
 const privateClient = new ApolloClient({
   cache: new InMemoryCache(),
@@ -14,6 +15,7 @@ const privateClient = new ApolloClient({
 
 export default function App () {
   return (
+    <DataProvider>
     <ApolloProvider client={privateClient}>
       <BrowserRouter>
         <Routes>
@@ -27,5 +29,6 @@ export default function App () {
         </Routes>
       </BrowserRouter>
     </ApolloProvider>
+    </DataProvider>
   )
 }
