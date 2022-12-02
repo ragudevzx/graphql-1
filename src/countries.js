@@ -6,6 +6,7 @@ import {
 } from "@mui/material";
 import { gql, useQuery } from "@apollo/client";
 import AlertDialogSlide from "../src/components/DialogPopup";
+import CheckboxFav from './components/CheckboxFav'
 
 const COUNTRIES = gql`
   query Countries {
@@ -81,6 +82,7 @@ const Countries = () => {
               color: country.states.length > 0 ? "blue" : "#999",
             }}
           >
+            <CheckboxFav />
             <AlertDialogSlide
               country={country}
             />

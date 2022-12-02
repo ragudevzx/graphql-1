@@ -8,6 +8,7 @@ import {
 } from '@mui/material'
 import { useNavigate } from 'react-router-dom'
 import { gql, useQuery, useLazyQuery } from '@apollo/client'
+import CheckboxFav from './components/CheckboxFav'
 
 const CONTINENTS = gql`
   query Continents {
@@ -59,6 +60,7 @@ const Continents = () => {
         <List>
         {continents.map(continent => (
           <ListItem key={continent.code}>
+            <CheckboxFav />
             {continent.code} - {continent.name}
           </ListItem>
         ))}

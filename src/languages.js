@@ -7,6 +7,7 @@ import {
 } from '@mui/material'
 import { useNavigate } from 'react-router-dom'
 import { gql, useQuery } from '@apollo/client'
+import CheckboxFav from './components/CheckboxFav'
 
 const LANGUAGES = gql`
   query Languages {
@@ -39,6 +40,7 @@ const Languages = () => {
       <List>
         {languages.map(lang => (
           <ListItem key={lang.code}>
+            <CheckboxFav />
             {lang.code} - {lang.name} - {lang.native}
           </ListItem>
         ))}
