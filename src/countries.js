@@ -82,10 +82,10 @@ const Countries = () => {
               color: country.states.length > 0 ? "blue" : "#999",
             }}
           >
-            <CheckboxFav />
-            <AlertDialogSlide
-              country={country}
-            />
+            <div className="flexbox-container">
+              <div className="flexbox-item"><CheckboxFav /></div>
+              <div className="flexbox-dialog"><AlertDialogSlide country={country}/></div>
+            </div>
           </Box>
         ))}
       </Box>
