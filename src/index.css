@@ -16,6 +16,17 @@ code {
   display: flex;
 }
 
+.flexbox-container-home {
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+}
+
 .flexbox-dialog {
   margin-top: 10px;
+}
+
+.flexbox-item {
+  justify-content: center;
+  justify-items: center;
 }

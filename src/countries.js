@@ -83,7 +83,7 @@ const Countries = () => {
             }}
           >
             <div className="flexbox-container">
-              <div className="flexbox-item"><CheckboxFav /></div>
+              <div className="flexbox-item"><CheckboxFav data={country} /></div>
               <div className="flexbox-dialog"><AlertDialogSlide country={country}/></div>
             </div>
           </Box>

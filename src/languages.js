@@ -40,7 +40,7 @@ const Languages = () => {
       <List>
         {languages.map(lang => (
           <ListItem key={lang.code}>
-            <CheckboxFav />
+            <CheckboxFav data={lang}/>
             {lang.code} - {lang.name} - {lang.native}
           </ListItem>
         ))}

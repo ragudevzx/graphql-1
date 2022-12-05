@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import * as React from 'react';
 import {
   Typography,
   Container,
@@ -60,7 +60,7 @@ const Continents = () => {
         <List>
         {continents.map(continent => (
           <ListItem key={continent.code}>
-            <CheckboxFav />
+            <CheckboxFav data={continent}/>
             {continent.code} - {continent.name}
           </ListItem>
         ))}
